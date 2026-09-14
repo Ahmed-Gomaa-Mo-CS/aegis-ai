@@ -19,10 +19,10 @@ class MessageBus:
 
     def clear(self):
         self.messages = []
-
-if self.bus:
-    self.bus.broadcast(
-        self.name,
-        "LLM_ANALYSIS",
-        f"LLM analyzed payload: {payload}"
-    )
+        
+        if self.bus:
+            self.bus.broadcast(
+                self.name,
+                "LLM_ANALYSIS",
+                f"LLM analyzed payload: {payload}"
+            )
