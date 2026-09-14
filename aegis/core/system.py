@@ -62,7 +62,7 @@ class AegisSystem:
             self.coordinator.trust_model.update_trust(agent_name, correct)
 
         # update metrics
-        self.metrics.update(decision)
+        self.metrics.update(decision, actual_malicious)
 
         # logs
         print(f"[THREAT] {threat}")
