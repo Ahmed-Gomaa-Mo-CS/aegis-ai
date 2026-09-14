@@ -44,12 +44,8 @@ Instead of treating AI as a tool, this project treats cybersecurity as:
 
 flowchart TD
 
-<img width="102" height="150" alt="Aegis AI Agent Coordination-2026-09-14-184344" src="https://github.com/user-attachments/assets/d8838ced-821b-4cdd-af0c-fa61242cd27f" />
-<svg id="export-svg" width="100%" xmlns="http://www.w3.org/2000/svg" class="flowchart" style="max-width: 559.025px; background: rgb(255, 255, 255);" viewBox="0 0 559.0250244140625 821" role="graphics-document document" aria-roledescription="flowchart-v2"><style xmlns="http://www.w3.org/1999/xhtml">/* Copyright 2019 The Recursive Project Authors (github.com/arrowtype/recursive)
+<img width="2795" height="4105" alt="Aegis AI Agent Coordination-2026-09-14-184939" src="https://github.com/user-attachments/assets/87a3d399-45bb-454a-8781-4231ba4fff5d" />
 
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------
