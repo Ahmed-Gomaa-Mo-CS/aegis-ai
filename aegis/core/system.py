@@ -24,9 +24,9 @@ class AegisSystem:
             MLAgent(self.bus),
             AIAgent(self.bus),
         ]
-
-    if use_llm:
-    self.agents.append(LLMAgent(self.bus))
+        
+        if use_llm:
+            self.agents.append(LLMAgent(self.bus))
 
         self.resource_controller = ResourceController()
         self.coordinator = Coordinator()
