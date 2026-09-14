@@ -4,9 +4,13 @@
 Adaptive Multi-Agent Cyber Defense Framework for AI-Driven Threats
 
 "Python" (https://img.shields.io/badge/Python-3.11-blue)
+
 "Status" (https://img.shields.io/badge/Status-Research%20Prototype-orange)
+
 "Architecture" (https://img.shields.io/badge/Architecture-Multi--Agent-green)
+
 "AI" (https://img.shields.io/badge/AI-LLM%20%2B%20ML-purple)
+
 "License" (https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
