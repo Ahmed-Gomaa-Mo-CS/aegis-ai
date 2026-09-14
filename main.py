@@ -1,29 +1,25 @@
 
-from aegis.agents.ai_agent import AIAgent
-from aegis.core.escalation_engine import EscalationEngine
-from aegis.core.resource_controller import ResourceController
-from aegis.simulation.attacker import generate_attack
 from aegis.core.system import AegisSystem
 
-def run():
 
-    ai_agent = AIAgent()
-    controller = ResourceController()
+def run_demo():
+    print("\n=== AEGIS-AI DEMO RUN ===\n")
 
-    engine = EscalationEngine([ai_agent], controller)
+    system = AegisSystem(use_llm=True)
+    system.run_experiment(n=20)
 
-    for _ in range(10):
-        threat = generate_attack()
-        decision = engine.evaluate(threat)
 
-        print(threat, "→", decision)
+def run_no_llm():
+    print("\n=== RUN WITHOUT LLM ===\n")
 
-if __name__ == "__main__":
-    run()
+    system = AegisSystem(use_llm=False)
+    system.run_experiment(n=20)
 
 
 if __name__ == "__main__":
 
-    system = AegisSystem()
+    #  Any mode can be selected.
+    run_demo()
 
-    system.run_experiment(n=30)
+    # Quick comparison:
+    # run_no_llm()
