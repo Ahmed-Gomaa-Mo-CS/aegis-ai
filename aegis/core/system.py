@@ -1,59 +1,28 @@
 
-from aegis.simulation.attacker import generate_attack
-from aegis.agents.ids_agent import IDSAgent
-from aegis.agents.ml_agent import MLAgent
-from aegis.agents.ai_agent import AIAgent
-from aegis.core.escalation_engine import EscalationEngine
-from aegis.core.resource_controller import ResourceController
-from aegis.coordination.coordinator import Coordinator
-from aegis.coordination.message_bus import MessageBus
-from aegis.evaluation.metrics import Metrics
+def run_cycle(self):
 
+    self.bus.clear()
 
-class AegisSystem:
+    threat = generate_attack()
 
-    def __init__(self):
+    decision, results = self.engine.evaluate(threat)
 
-        #  communication layer
-        self.bus = MessageBus()
+    # Ground truth (simulated)
+    actual_malicious = threat["type"] in ["malware", "ai_attack"]
 
-        # agents now share bus
-        self.agents = [
-            IDSAgent(self.bus),
-            MLAgent(self.bus),
-            AIAgent(self.bus)
-        ]
+    # update trust
+    for agent_name, result in results:
 
-        self.resource_controller = ResourceController()
-        self.coordinator = Coordinator()
+        predicted_block = result["decision"] == "block"
 
-        self.engine = EscalationEngine(
-            agents=self.agents,
-            coordinator=self.coordinator,
-            resource_controller=self.resource_controller
-        )
+        correct = (predicted_block == actual_malicious)
 
-        self.metrics = Metrics()
+        self.coordinator.trust_model.update_trust(agent_name, correct)
 
-    def run_cycle(self):
+    self.metrics.update(decision)
 
-        # clear communication each cycle (important research design)
-        self.bus.clear()
-
-        threat = generate_attack()
-        decision = self.engine.evaluate(threat)
-
-        self.metrics.update(decision)
-
-        print(f"[THREAT] {threat}")
-        print(f"[MESSAGES] {self.bus.get_messages()}")
-        print(f"[DECISION] {decision}")
-        print("-" * 50)
-
-    def run_experiment(self, n=20):
-
-        for _ in range(n):
-            self.run_cycle()
-
-        print("\n=== FINAL REPORT ===")
-        self.metrics.report()
+    print(f"[THREAT] {threat}")
+    print(f"[MESSAGES] {self.bus.get_messages()}")
+    print(f"[DECISION] {decision}")
+    print(f"[TRUST] {self.coordinator.trust_model.trust_scores}")
+    print("-" * 50)
