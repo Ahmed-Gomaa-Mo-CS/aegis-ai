@@ -3,71 +3,76 @@
 
 Adaptive Multi-Agent Cyber Defense Framework for AI-Driven Threats
 
+"Python" (https://img.shields.io/badge/Python-3.11-blue)
+"Status" (https://img.shields.io/badge/Status-Research%20Prototype-orange)
+"Architecture" (https://img.shields.io/badge/Architecture-Multi--Agent-green)
+"AI" (https://img.shields.io/badge/AI-LLM%20%2B%20ML-purple)
+"License" (https://img.shields.io/badge/License-MIT-lightgrey)
+
 ---
 
 🔬 Overview
 
-Aegis-AI is a research-oriented cybersecurity framework that models adaptive, multi-agent defense mechanisms against both traditional and AI-driven cyber threats.
+Aegis-AI is a research-driven cybersecurity framework that models adaptive, distributed, and intelligent defense systems against modern cyber threats—particularly those powered by artificial intelligence.
 
 The system integrates:
 
-- Rule-based detection (IDS)
+- Signature-based detection (IDS)
 - Machine learning anomaly detection
-- AI-based semantic reasoning
-- LLM-powered adversarial analysis
+- AI-driven heuristic reasoning
+- LLM-based semantic threat analysis
 - Trust-aware multi-agent coordination
 
-Unlike conventional systems, Aegis-AI is designed around the principle:
-
-«“AI must defend against AI—not just assist traditional security.”»
+«Core Principle:
+Cybersecurity must evolve from static defenses into adaptive, intelligent, and collaborative systems capable of countering AI-driven adversaries.»
 
 ---
 
-🧠 Research Motivation
+🧠 Research Vision
 
-Modern cyber threats are rapidly evolving toward AI-driven automation, including:
+Aegis-AI addresses a critical gap:
 
-- Prompt injection attacks
-- Adversarial inputs
-- Autonomous malware generation
-- Social engineering at scale
+«How can we defend systems against adversaries that are themselves intelligent, adaptive, and autonomous?»
 
-Existing defenses treat AI as a tool.
-Aegis-AI reframes the problem:
+Instead of treating AI as a tool, this project treats cybersecurity as:
 
-«Cybersecurity as a distributed, intelligent, adaptive system of cooperating agents.»
+«🧠 A distributed intelligence problem»
 
 ---
 
 🏗️ System Architecture
 
-The framework is structured as a layered, modular system:
+flowchart TD
 
-Threat Input
-    ↓
-Multi-Agent Layer
-    ├── IDS Agent (signature-based)
-    ├── ML Agent (anomaly detection)
-    ├── AI Agent (heuristic reasoning)
-    └── LLM Agent (semantic threat analysis)
-    ↓
-Communication Layer (Message Bus)
-    ↓
-Trust Model (dynamic agent weighting)
-    ↓
-Coordinator (decision aggregation)
-    ↓
-Final Decision (BLOCK / MONITOR / ALLOW)
+A[Threat Input] --> B[Multi-Agent Layer]
+
+B --> C1[IDS Agent]
+B --> C2[ML Agent]
+B --> C3[AI Agent]
+B --> C4[LLM Agent]
+
+C1 --> D[Message Bus]
+C2 --> D
+C3 --> D
+C4 --> D
+
+D --> E[Shared Context]
+
+E --> F[Trust Model]
+
+F --> G[Coordinator]
+
+G --> H[Final Decision]
+
+H --> I[Metrics & Logging]
 
 ---
 
-🤖 Multi-Agent Design
+🤖 Multi-Agent Layer
 
-Each agent operates independently but collaborates through shared context.
+Each agent contributes a unique analytical perspective:
 
-Agents:
-
-Agent| Role
+Agent| Function
 IDS Agent| Fast detection of known threats
 ML Agent| Statistical anomaly detection
 AI Agent| Rule-based reasoning
@@ -77,32 +82,27 @@ LLM Agent| Semantic + adversarial analysis
 
 📡 Communication Layer
 
-Aegis-AI implements a lightweight Message Bus enabling:
+Aegis-AI uses a Message Bus architecture:
 
-- Alert broadcasting
-- Shared threat awareness
-- Cross-agent influence
-- Context-aware decision-making
+- Agents broadcast alerts
+- Share threat intelligence
+- Influence each other dynamically
 
-This transforms the system from:
+This enables:
 
-- Independent agents ❌
-  to
-- Collaborative intelligence ✔
+«🔁 Collaborative threat detection instead of isolated decisions»
 
 ---
 
-🔐 Trust Model
+🔐 Trust-Aware Coordination
 
 Each agent is assigned a dynamic trust score:
 
-- Updated based on correctness
+- Updated based on performance
 - Influences decision weight
-- Enables adaptive reliability
+- Enables adaptive learning
 
-This introduces:
-
-«Trust-aware decision-making in distributed AI security systems»
+«This introduces a self-correcting security system»
 
 ---
 
@@ -111,37 +111,37 @@ This introduces:
 The LLM Agent provides:
 
 - Prompt injection detection
-- Malicious instruction analysis
-- Semantic threat reasoning
-- AI-vs-AI defense capability
+- Adversarial input analysis
+- Semantic reasoning
+- AI-to-AI defense capability
 
 Supports:
 
 - Gemini API (default)
-- Fallback rule-based mode (offline)
+- Offline fallback mode
 
 ---
 
-⚙️ Core Features
+⚙️ Core Capabilities
 
 - Multi-agent coordination
-- Trust-aware aggregation
-- Adaptive escalation
-- Resource-aware execution
-- AI-driven threat detection
+- Adaptive decision-making
+- Trust-based weighting
+- Communication-driven intelligence
+- AI-aware threat detection
 - Modular research architecture
 
 ---
 
 🧪 Experimental Framework
 
-The project includes a dedicated experiments pipeline:
+Aegis-AI includes a full research pipeline:
 
 Experiments:
 
 - With LLM vs Without LLM
-- Trust evolution over time
-- Detection performance
+- Trust evolution analysis
+- Detection performance comparison
 
 Metrics:
 
@@ -150,15 +150,9 @@ Metrics:
 - Accuracy
 - F1-score
 
-Output:
-
-- Performance comparison
-- Graph visualizations
-- Trust adaptation logs
-
 ---
 
-📊 Example Experiment Output
+📈 Example Output
 
 Precision: 0.91
 Recall: 0.87
@@ -169,34 +163,34 @@ F1-score: 0.89
 
 🚀 Getting Started
 
-1. Clone the repository
+Clone repository
 
 git clone https://github.com/Ahmed-Gomaa-Mo-CS/aegis-ai.git
 cd aegis-ai
 
 ---
 
-2. Install dependencies
+Install dependencies
 
 pip install -r requirements.txt
 
 ---
 
-3. Configure API key (optional)
+Configure API key (optional)
 
-Create ".env" in project root:
+Create ".env" file:
 
 GEMINI_API_KEY=your_api_key_here
 
 ---
 
-4. Run system
+Run system
 
 python main.py
 
 ---
 
-5. Run experiments
+Run experiments
 
 python experiments/run_experiments.py
 
@@ -214,7 +208,7 @@ aegis-ai/
 │
 ├── experiments/            # Research experiments
 │
-├── main.py                 # System entry point
+├── main.py
 ├── requirements.txt
 └── README.md
 
@@ -226,42 +220,35 @@ This project explores:
 
 - Multi-agent cybersecurity systems
 - Trust-aware AI coordination
-- LLM-based threat reasoning
-- AI-driven attack defense
-- Distributed security architectures
+- LLM-based adversarial defense
+- Distributed intelligent security
+- AI-vs-AI threat mitigation
 
 ---
 
-📌 Research Direction
+🔮 Future Work
 
-Aegis-AI is an early-stage implementation of a broader research agenda:
-
-«Building autonomous, self-expanding cybersecurity systems capable of defending against intelligent adversaries.»
-
-Future work includes:
-
-- Distributed agent networks (blockchain-based identity)
-- Real-world datasets integration
-- LLM fine-tuning for security tasks
+- Blockchain-based agent identity
+- Real-world dataset integration
+- LLM fine-tuning for security
 - Graph-based threat propagation
-- Zero-day attack simulation
+- Autonomous distributed defense
 
 ---
 
 🎓 Academic Context
 
-This project is developed as part of a research trajectory toward:
+Developed as part of a research trajectory toward:
 
 - PhD in Computer Science
-- Cybersecurity + AI specialization
+- Cybersecurity & AI specialization
 - Autonomous defense systems
 
 ---
 
 ⚠️ Disclaimer
 
-This is a research prototype intended for experimentation and academic exploration.
-It is not a production-ready security system.
+This project is a research prototype and not intended for production use.
 
 ---
 
