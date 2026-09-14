@@ -1,5 +1,7 @@
 
 from aegis.core.system import AegisSystem
+from experiments.plot_results import plot_comparison
+
 
 def run_experiment(use_llm):
 
@@ -25,4 +27,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+plot_comparison(no_llm_metrics, llm_metrics)
