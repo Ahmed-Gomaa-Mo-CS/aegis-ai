@@ -1,4 +1,6 @@
 
+from aegis.agents.llm_agent import LLMAgent
+
 def run_cycle(self):
 
     self.bus.clear()
@@ -26,3 +28,11 @@ def run_cycle(self):
     print(f"[DECISION] {decision}")
     print(f"[TRUST] {self.coordinator.trust_model.trust_scores}")
     print("-" * 50)
+
+self.agents = [
+    IDSAgent(self.bus),
+    MLAgent(self.bus),
+    AIAgent(self.bus),
+    LLMAgent(self.bus)
+]
+
