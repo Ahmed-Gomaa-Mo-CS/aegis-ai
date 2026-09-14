@@ -1,5 +1,11 @@
 
+from aegis.coordination.trust_model import TrustModel
+
+
 class Coordinator:
+
+    def __init__(self):
+        self.trust_model = TrustModel()
 
     def aggregate(self, agent_results):
 
@@ -9,15 +15,20 @@ class Coordinator:
             "safe": 0
         }
 
+        # apply trust-weighting
         for agent_name, result in agent_results:
+
+            trust = self.trust_model.get_trust(agent_name)
 
             decision = result["decision"]
             confidence = result["confidence"]
 
-            scores[decision] += confidence
+            weighted_score = confidence * trust
 
-        # Decision logic
-        if scores["block"] > scores["suspicious"]:
+            scores[decision] += weighted_score
+
+        # final decision
+        if scores["block"] > scores["safe"]:
             return "BLOCK"
 
         if scores["suspicious"] > 0:
