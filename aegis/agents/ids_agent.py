@@ -1,16 +1,22 @@
 
-class IDSAgent:
+from .base_agent import BaseAgent
 
-    def __init__(self):
-        self.name = "IDS-Agent"
+class IDSAgent(BaseAgent):
+
+    def __init__(self, bus):
+        super().__init__("IDS-Agent", bus)
 
     def analyze(self, threat):
 
         payload = threat.get("payload", "").lower()
 
-        signatures = ["trojan", "malware", "exploit"]
+        if "malware" in payload or "exploit" in payload:
 
-        if any(sig in payload for sig in signatures):
+            self.send_alert(
+                "SECURITY_ALERT",
+                f"IDS detected threat: {payload}"
+            )
+
             return {
                 "decision": "block",
                 "confidence": 0.9
@@ -20,3 +26,4 @@ class IDSAgent:
             "decision": "safe",
             "confidence": 0.3
         }
+
