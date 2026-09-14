@@ -3,4 +3,4 @@ google-generativeai
 python-dotenv
 matplotlib
 
-pip install -r requirements.txt
+# pip install -r requirements.txt
