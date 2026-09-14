@@ -10,8 +10,9 @@ class Metrics:
 
         self.history = []
 
-    self.metrics.update(decision, actual_malicious):
-
+    def update_metrics(self, decision, actual_malicious):
+        
+        self.metrics.update(decision, actual_malicious)
         predicted = decision == "BLOCK"
 
         if predicted and actual_malicious:
