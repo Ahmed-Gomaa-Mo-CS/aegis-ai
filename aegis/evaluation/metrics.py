@@ -2,7 +2,6 @@
 class Metrics:
 
     def __init__(self):
-
         self.tp = 0  # true positive
         self.fp = 0  # false positive
         self.fn = 0  # false negative
@@ -10,9 +9,7 @@ class Metrics:
 
         self.history = []
 
-    def update_metrics(self, decision, actual_malicious):
-        
-        self.metrics.update(decision, actual_malicious)
+    def update(self, decision, actual_malicious):
         predicted = decision == "BLOCK"
 
         if predicted and actual_malicious:
@@ -27,7 +24,6 @@ class Metrics:
         self.history.append((self.tp, self.fp, self.fn, self.tn))
 
     def compute(self):
-
         precision = self.tp / (self.tp + self.fp + 1e-6)
         recall = self.tp / (self.tp + self.fn + 1e-6)
         accuracy = (self.tp + self.tn) / (self.tp + self.fp + self.fn + self.tn + 1e-6)
@@ -37,7 +33,6 @@ class Metrics:
         return precision, recall, accuracy, f1
 
     def report(self):
-
         p, r, a, f1 = self.compute()
 
         print(f"Precision: {p:.3f}")
