@@ -13,7 +13,7 @@ from aegis.evaluation.metrics import Metrics
 
 class AegisSystem:
 
-    def __init__(self):
+    def __init__(self, use_llm=True):
 
         #  communication layer
         self.bus = MessageBus()
@@ -23,8 +23,10 @@ class AegisSystem:
             IDSAgent(self.bus),
             MLAgent(self.bus),
             AIAgent(self.bus),
-            LLMAgent(self.bus)   # Gemini LLM
         ]
+
+    if use_llm:
+    self.agents.append(LLMAgent(self.bus))
 
         self.resource_controller = ResourceController()
         self.coordinator = Coordinator()
