@@ -11,10 +11,11 @@ class EscalationEngine:
         results = []
 
         for agent in self.agents:
-
             if self.resource_controller.allow(agent.name):
                 result = agent.analyze(threat)
                 results.append((agent.name, result))
 
-        # Multi-agent decision
-        return self.coordinator.aggregate(results)
+        decision = self.coordinator.aggregate(results)
+
+        return decision, results
+
