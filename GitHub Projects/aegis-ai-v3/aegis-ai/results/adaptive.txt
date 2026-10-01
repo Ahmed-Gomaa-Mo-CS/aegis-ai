@@ -1,0 +1,7 @@
+defence                     evasion rate   after hardening
+IDS only                            0.96              0.96
+ML only                             0.39              0.02
+LLM only (k=3)                      0.10              0.02
+Cascade, no LLM                     0.57              0.02
+Cascade + LLM                       0.15              0.04
+All agents, no cascade              0.13              0.02
