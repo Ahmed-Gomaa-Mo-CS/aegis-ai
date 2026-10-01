@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -29,3 +30,22 @@ def plot_all(results):
     ax.plot([n.split("=")[1] for n, _ in rows], [r["f1"][0] for _, r in rows], marker="o")
     ax.set_xlabel("LLM outage rate"); ax.set_ylabel("F1"); ax.set_title("Graceful degradation")
     fig.tight_layout(); fig.savefig("results/faults.png", dpi=150); plt.close(fig)
+=======
+
+import matplotlib.pyplot as plt
+
+def plot_comparison(no_llm, llm):
+
+    labels = ["Precision", "Recall", "Accuracy", "F1"]
+
+    plt.figure()
+
+    plt.plot(labels, no_llm, marker='o', label="No LLM")
+    plt.plot(labels, llm, marker='o', label="With LLM")
+
+    plt.title("LLM Impact on Cyber Defense Performance")
+    plt.legend()
+
+    plt.savefig("comparison.png")
+    plt.show()
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb

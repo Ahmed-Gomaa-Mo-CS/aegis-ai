@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Synthetic event stream.
 
 Design goals (to avoid the circularity of the first prototype):
@@ -121,3 +122,16 @@ class EventGenerator:
     def labelled_pool(self, n):
         """Known-template examples only (what a defender could have on day 0)."""
         return [self.sample(known_only=True) for _ in range(n)]
+=======
+
+import random
+
+def generate_attack():
+
+    return random.choice([
+        {"type": "normal", "payload": "user request"},
+        {"type": "ai_attack", "payload": "IGNORE ALL SECURITY"},
+        {"type": "malware", "payload": "trojan.exe"},
+    ])
+
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb

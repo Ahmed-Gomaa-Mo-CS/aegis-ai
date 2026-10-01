@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class ResourceController:
     """Cumulative per-event budget (the old version compared each agent's cost
     to the cap in isolation, so it never restricted anything)."""
@@ -21,3 +22,18 @@ class ResourceController:
         c = self.cost(name)
         self.spent += c
         self.total_spent += c
+=======
+class ResourceController:
+
+    def __init__(self):
+        self.costs = {
+            "IDS-Agent": 1,
+            "ML-Agent": 5,
+            "AI-Agent": 10
+        }
+        self.max_budget = 12
+
+    def allow(self, agent_name):
+        return self.costs.get(agent_name, 0) <= self.max_budget
+
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb

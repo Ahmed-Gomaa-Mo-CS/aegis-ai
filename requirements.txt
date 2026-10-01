@@ -1,3 +1,12 @@
+<<<<<<< HEAD
 google-genai
 python-dotenv
 matplotlib
+=======
+
+google-generativeai
+python-dotenv
+matplotlib
+
+# pip install -r requirements.txt
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb

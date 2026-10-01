@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from aegis.coordination.trust_model import TrustModel
 
 LABEL = {"block": "BLOCK", "suspicious": "MONITOR", "safe": "ALLOW"}
@@ -33,3 +34,43 @@ class Coordinator:
         s = self.scores(agent_results)
         total = sum(s.values())
         return total >= weight and total > 0 and max(s.values()) / total >= share
+=======
+
+from aegis.coordination.trust_model import TrustModel
+
+
+class Coordinator:
+
+    def __init__(self):
+        self.trust_model = TrustModel()
+
+    def aggregate(self, agent_results):
+
+        scores = {
+            "block": 0,
+            "suspicious": 0,
+            "safe": 0
+        }
+
+        # apply trust-weighting
+        for agent_name, result in agent_results:
+
+            trust = self.trust_model.get_trust(agent_name)
+
+            decision = result["decision"]
+            confidence = result["confidence"]
+
+            weighted_score = confidence * trust
+
+            scores[decision] += weighted_score
+
+        # final decision
+        if scores["block"] > scores["safe"]:
+            return "BLOCK"
+
+        if scores["suspicious"] > 0:
+            return "MONITOR"
+
+        return "ALLOW"
+
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Experiments: baselines, k-shot sweep, budget Pareto, fault tolerance.
 
     python -m experiments.run_experiments --seeds 20 --n 300 --backend sim
@@ -111,7 +112,38 @@ def main():
         plot_all(results)
     except ImportError:
         print("matplotlib not installed: skipping plots")
+=======
+
+from aegis.core.system import AegisSystem
+from experiments.plot_results import plot_comparison
+
+
+def run_experiment(use_llm):
+
+    system = AegisSystem(use_llm=use_llm)
+    system.run_experiment(n=50)
+
+    return system.metrics.compute(), system.metrics.history
+
+
+def main():
+
+    print("\n=== RUNNING WITHOUT LLM ===")
+    no_llm_metrics, no_llm_history = run_experiment(False)
+
+    print("\n=== RUNNING WITH LLM ===")
+    llm_metrics, llm_history = run_experiment(True)
+
+    print("\n=== COMPARISON ===")
+
+    print("No LLM:", no_llm_metrics)
+    print("With LLM:", llm_metrics)
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb
 
 
 if __name__ == "__main__":
     main()
+<<<<<<< HEAD
+=======
+plot_comparison(no_llm_metrics, llm_metrics)
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb

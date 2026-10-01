@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logging
 
 log = logging.getLogger(__name__)
@@ -43,3 +44,26 @@ class EscalationEngine:
             if self.cascade and self.coordinator.is_decisive(results, self.stop_share, self.stop_weight):
                 break
         return self.coordinator.aggregate(results), results
+=======
+
+class EscalationEngine:
+
+    def __init__(self, agents, coordinator, resource_controller):
+        self.agents = agents
+        self.coordinator = coordinator
+        self.resource_controller = resource_controller
+
+    def evaluate(self, threat):
+
+        results = []
+
+        for agent in self.agents:
+            if self.resource_controller.allow(agent.name):
+                result = agent.analyze(threat)
+                results.append((agent.name, result))
+
+        decision = self.coordinator.aggregate(results)
+
+        return decision, results
+
+>>>>>>> 1a004f91eda03eafd4e26b1cf9dbdc33beff3bbb
